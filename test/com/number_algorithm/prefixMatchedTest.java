@@ -11,5 +11,7 @@ class prefixMatchedTest {
         int digit = 7;
         boolean actual  = prefixMatched.isPrefix(number, digit);
         assertTrue(actual);
+
+        assertTrue(prefixMatched.isPrefix(3374647, 34));
     }
 }
