@@ -13,4 +13,12 @@ class CreditCardValidationTest {
         assertTrue(actual);
     }
 
+    @Test
+    void creditCard_isMasterCard(){
+        String creditCard = "545758848388374";
+        boolean actual = CreditCardValidation.isMasterCard(creditCard);
+        assertTrue(actual);
+    }
+
+
 }
