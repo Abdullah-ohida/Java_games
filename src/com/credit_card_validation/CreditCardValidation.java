@@ -15,10 +15,10 @@ public class CreditCardValidation {
     }
 
     private static boolean ValidateCheckCard(String creditCard, char digit) {
-        boolean isValid = false;
-        if (creditCard.charAt(0) == digit && validateCardLength(creditCard)) {
-            isValid = true;
-        }
-        return isValid;
+        return creditCard.charAt(0) == digit && validateCardLength(creditCard);
+    }
+
+    public static boolean isAmericanExpressCardCard(String creditCard) {
+        return creditCard.charAt(0) == '3' && creditCard.charAt(1) == '7' && validateCardLength(creditCard);
     }
 }

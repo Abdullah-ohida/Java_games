@@ -20,5 +20,11 @@ class CreditCardValidationTest {
         assertTrue(actual);
     }
 
+    @Test
+    void creditCard_isAmericanExpressCardCard(){
+        String creditCard = "375758848388374";
+        boolean actual = CreditCardValidation.isAmericanExpressCardCard(creditCard);
+        assertTrue(actual);
+    }
 
 }
