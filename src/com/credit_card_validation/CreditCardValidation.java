@@ -3,15 +3,15 @@ package com.credit_card_validation;
 public class CreditCardValidation {
 
     public static boolean isVisaCard(String creditCard) {
-        return ValidateCheckCard(creditCard, '4');
+        return isCreditCard(creditCard, '4');
     }
 
     public static boolean isMasterCard(String creditCard) {
-        return ValidateCheckCard(creditCard, '5');
+        return isCreditCard(creditCard, '5');
     }
 
     public static boolean isDefaultCard(String creditCard) {
-        return ValidateCheckCard(creditCard, '6');
+        return isCreditCard(creditCard, '6');
     }
 
     public static boolean isAmericanExpressCardCard(String creditCard) {
@@ -22,7 +22,7 @@ public class CreditCardValidation {
         return creditCard.length() > 12 && creditCard.length() < 17;
     }
 
-    private static boolean ValidateCheckCard(String creditCard, char digit) {
+    private static boolean isCreditCard(String creditCard, char digit) {
         return creditCard.charAt(0) == digit && validateCardLength(creditCard);
     }
 
