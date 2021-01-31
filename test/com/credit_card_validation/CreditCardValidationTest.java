@@ -34,5 +34,33 @@ class CreditCardValidationTest {
         assertTrue(actual);
     }
 
+    @Test
+    void testIfCreditCardIsValid(){
+        String creditCard = "4388576018402626";
+        String cardType = CreditCardValidation.isValid(creditCard);
+        assertEquals("visa card", cardType);
+
+        creditCard = "5388576018402626";
+        cardType = CreditCardValidation.isValid(creditCard);
+        assertEquals("master card", cardType);
+
+        creditCard = "3788576018402626";
+        cardType = CreditCardValidation.isValid(creditCard);
+        assertEquals("american express card", cardType);
+
+        creditCard = "6388576018402626";
+        cardType = CreditCardValidation.isValid(creditCard);
+        assertEquals("default card", cardType);
+
+        creditCard = "8588576018402626";
+        cardType = CreditCardValidation.isValid(creditCard);
+        assertNull(cardType);
+
+    }
+
+    @Test
+    void testForTheSumOfDoubleEvenPlaceInCreditCardNumber() {
+    }
+
 
 }

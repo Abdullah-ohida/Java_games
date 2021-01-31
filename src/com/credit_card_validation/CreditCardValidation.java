@@ -26,7 +26,20 @@ public class CreditCardValidation {
         return creditCard.charAt(0) == digit && validateCardLength(creditCard);
     }
 
-
-
+    public static String isValid(String creditCard){
+        String cardType = "";
+        if(isVisaCard(creditCard)){
+            cardType = "visa card";
+        }else if(isMasterCard(creditCard)){
+            cardType = "master card";
+        }else if(isDefaultCard(creditCard)){
+            cardType = "default card";
+        }else if(isAmericanExpressCardCard(creditCard)){
+            cardType = "american express card";
+        }else {
+            cardType = null;
+        }
+        return cardType;
+    }
 
 }
