@@ -60,6 +60,12 @@ class CreditCardValidationTest {
 
     @Test
     void testForTheSumOfDoubleEvenPlaceInCreditCardNumber() {
+        String creditCard = "4388576018402626";
+        String cardType = CreditCardValidation.isValid(creditCard);
+        assertEquals("visa card", cardType);
+
+        int sumOfEven = CreditCardValidation.sumOfDoubleEvenPlace(creditCard);
+        assertEquals(37, sumOfEven);
     }
 
 

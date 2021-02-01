@@ -42,4 +42,42 @@ public class CreditCardValidation {
         return cardType;
     }
 
+    public static int sumOfDoubleEvenPlace(String creditCard) {
+        int stringToNumber = 0;
+        int sumOfDigitLesserThanFive = 0;
+        int sumOfDigitGreaterThanFive = 0;
+
+        for (int count = 0; count < creditCard.length(); count++){
+            if(isEvenPlace(count)){
+                stringToNumber = convertStringToNumber(creditCard, count);
+                sumOfDigitLesserThanFive = sumOfDigitLesserThanFive(stringToNumber, sumOfDigitLesserThanFive);
+                sumOfDigitGreaterThanFive = sumOfDigitGreaterThanFour(stringToNumber, sumOfDigitGreaterThanFive);
+            }
+        }
+        return sumOfDigitLesserThanFive + sumOfDigitGreaterThanFive;
+    }
+
+    private static boolean isEvenPlace(int count) {
+        return count % 2 == 0;
+    }
+
+    private static int sumOfDigitGreaterThanFour(int stringToNumber, int sum) {
+        if(stringToNumber > 4){
+            sum += ((stringToNumber * 2) % 10) + 1;
+        }
+        return sum;
+    }
+
+    private static int sumOfDigitLesserThanFive(int stringToNumber, int sumEvenPlaceNumber) {
+        if(stringToNumber < 5){
+            sumEvenPlaceNumber += stringToNumber * 2;
+        }
+        return sumEvenPlaceNumber;
+    }
+
+    private static int convertStringToNumber(String creditCard, int count) {
+        int stringToNumber;
+        stringToNumber = Integer.parseInt(String.valueOf(creditCard.charAt(count)));
+        return stringToNumber;
+    }
 }
