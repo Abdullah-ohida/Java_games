@@ -37,23 +37,23 @@ class CreditCardValidationTest {
     @Test
     void testIfCreditCardIsValid(){
         String creditCard = "4388576018402626";
-        String cardType = CreditCardValidation.isValid(creditCard);
+        String cardType = CreditCardValidation.getCreditCardName(creditCard);
         assertEquals("visa card", cardType);
 
         creditCard = "5388576018402626";
-        cardType = CreditCardValidation.isValid(creditCard);
+        cardType = CreditCardValidation.getCreditCardName(creditCard);
         assertEquals("master card", cardType);
 
         creditCard = "3788576018402626";
-        cardType = CreditCardValidation.isValid(creditCard);
+        cardType = CreditCardValidation.getCreditCardName(creditCard);
         assertEquals("american express card", cardType);
 
         creditCard = "6388576018402626";
-        cardType = CreditCardValidation.isValid(creditCard);
+        cardType = CreditCardValidation.getCreditCardName(creditCard);
         assertEquals("default card", cardType);
 
         creditCard = "8588576018402626";
-        cardType = CreditCardValidation.isValid(creditCard);
+        cardType = CreditCardValidation.getCreditCardName(creditCard);
         assertNull(cardType);
 
     }
@@ -61,12 +61,42 @@ class CreditCardValidationTest {
     @Test
     void testForTheSumOfDoubleEvenPlaceInCreditCardNumber() {
         String creditCard = "4388576018402626";
-        String cardType = CreditCardValidation.isValid(creditCard);
+        String cardType = CreditCardValidation.getCreditCardName(creditCard);
         assertEquals("visa card", cardType);
 
         int sumOfEven = CreditCardValidation.sumOfDoubleEvenPlace(creditCard);
         assertEquals(37, sumOfEven);
     }
 
+    @Test
+    void testForTheSumOfOddPlaceInCreditCard(){
+        String creditCard = "4388576018402626";
+        String cardType = CreditCardValidation.getCreditCardName(creditCard);
+        assertEquals("visa card", cardType);
+
+        int sumOfOdd = CreditCardValidation.sumOfOddPlace(creditCard);
+        assertEquals(38, sumOfOdd);
+    }
+
+    @Test
+    void testForTheTotalSumOfEvenAndOddNumberInCreditCard(){
+        String creditCard = "4388576018402626";
+        String cardType = CreditCardValidation.getCreditCardName(creditCard);
+        assertEquals("visa card", cardType);
+
+        int sumOfEvenAndOdd = CreditCardValidation.sumOfEvenAndOddPlace(creditCard);
+        assertEquals(75, sumOfEvenAndOdd);
+    }
+
+    @Test
+    void creditCard_isValid(){
+        String creditCard = "4388576018410707";
+        String cardType = CreditCardValidation.getCreditCardName(creditCard);
+        assertEquals("visa card", cardType);
+
+        boolean isValid = CreditCardValidation.isValidCreditCard(creditCard);
+        assertTrue(isValid);
+
+    }
 
 }

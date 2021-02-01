@@ -26,8 +26,8 @@ public class CreditCardValidation {
         return creditCard.charAt(0) == digit && validateCardLength(creditCard);
     }
 
-    public static String isValid(String creditCard){
-        String cardType = "";
+    public static String getCreditCardName(String creditCard){
+        String cardType;
         if(isVisaCard(creditCard)){
             cardType = "visa card";
         }else if(isMasterCard(creditCard)){
@@ -43,7 +43,7 @@ public class CreditCardValidation {
     }
 
     public static int sumOfDoubleEvenPlace(String creditCard) {
-        int stringToNumber = 0;
+        int stringToNumber;
         int sumOfDigitLesserThanFive = 0;
         int sumOfDigitGreaterThanFive = 0;
 
@@ -76,8 +76,29 @@ public class CreditCardValidation {
     }
 
     private static int convertStringToNumber(String creditCard, int count) {
-        int stringToNumber;
-        stringToNumber = Integer.parseInt(String.valueOf(creditCard.charAt(count)));
-        return stringToNumber;
+        return Integer.parseInt(String.valueOf(creditCard.charAt(count)));
+    }
+
+    public static int sumOfOddPlace(String creditCard) {
+        int sumOddDigits = 0;
+        for (int count = 0; count < creditCard.length(); count++){
+            if(isOddPlace(count)){
+                int stringToNumber = convertStringToNumber(creditCard, count);
+                sumOddDigits += stringToNumber;
+            }
+        }
+        return sumOddDigits;
+    }
+
+    private static boolean isOddPlace(int count) {
+        return count % 2 == 1;
+    }
+
+    public static int sumOfEvenAndOddPlace(String creditCard) {
+        return sumOfDoubleEvenPlace(creditCard) + sumOfOddPlace(creditCard);
+    }
+
+    public static boolean isValidCreditCard(String creditCard) {
+        return sumOfEvenAndOddPlace(creditCard) % 10 == 0;
     }
 }
