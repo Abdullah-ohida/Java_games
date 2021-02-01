@@ -45,16 +45,16 @@ public class CreditCardValidation {
     public static int sumOfDoubleEvenPlace(String creditCard) {
         int stringToNumber;
         int sumOfDigitLesserThanFive = 0;
-        int sumOfDigitGreaterThanFive = 0;
+        int sumOfDigitGreaterThanFour = 0;
 
         for (int count = 0; count < creditCard.length(); count++){
             if(isEvenPlace(count)){
                 stringToNumber = convertStringToNumber(creditCard, count);
                 sumOfDigitLesserThanFive = sumOfDigitLesserThanFive(stringToNumber, sumOfDigitLesserThanFive);
-                sumOfDigitGreaterThanFive = sumOfDigitGreaterThanFour(stringToNumber, sumOfDigitGreaterThanFive);
+                sumOfDigitGreaterThanFour = sumOfDigitGreaterThanFour(stringToNumber, sumOfDigitGreaterThanFour);
             }
         }
-        return sumOfDigitLesserThanFive + sumOfDigitGreaterThanFive;
+        return sumOfDigitLesserThanFive + sumOfDigitGreaterThanFour;
     }
 
     private static boolean isEvenPlace(int count) {
