@@ -68,5 +68,16 @@ class CreditCardValidationTest {
         assertEquals(37, sumOfEven);
     }
 
+    @Test
+    void testForTheSumOfOddPlaceInCreditCard(){
+        String creditCard = "4388576018402626";
+        String cardType = CreditCardValidation.isValid(creditCard);
+        assertEquals("visa card", cardType);
+
+        int sumOfOdd = CreditCardValidation.sumOfOddPlace(creditCard);
+        assertEquals(38, sumOfOdd);
+
+    }
+
 
 }
